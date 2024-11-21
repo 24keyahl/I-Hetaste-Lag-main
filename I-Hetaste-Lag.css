@@ -1,0 +1,78 @@
+.flexDiv {
+    display: flex;
+}
+#infoDiv {
+    flex-direction: column;
+}
+#chartDiv {
+    display:flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+.Chart {
+    width: 90%;
+}
+#dateInput {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    width: 100%;
+}
+.dateSelector { 
+    margin: 1%;
+    width: 100%;
+    height: 100%;
+}
+#curentParentDiv {
+    display: flex;
+    justify-content: center;
+}
+#curentValueDiv {
+    flex-direction: column;
+    width: 100px;
+}
+#curentDelayDiv {
+    flex-direction: column;
+    margin-left: 5%;
+    width: 90px;
+}
+.thermValue {
+    width: 100%;
+}
+.valuePatrent {
+    width: 40%;
+}
+.delayParent {
+    width: 40%;
+}
+@media (min-width: 700px) {
+    #infoDiv {
+        justify-content: space-evenly;
+        flex-direction: row-reverse;
+    }
+    .Chart {
+        width: 45%;
+    }
+    #chartDiv {
+        flex-direction: row;
+    }
+    #dateInput {
+        margin-left: 15%;
+        flex-direction: column;
+        justify-content: flex-end;
+        width: 100%;
+    }
+    #curentParentDiv {
+        margin-right: 15%;
+    }
+    #curentValueDiv {
+        flex-direction: column;
+        width: 100px;
+    }
+    .valuePatrent {
+        width: 90%;
+    }
+    .delayParent {
+        width: 90%;
+    }
+}

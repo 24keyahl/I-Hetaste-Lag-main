@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Termometer</title>
+        <link href="I-Hetaste-Lag.css" rel="stylesheet">
+        <script src="I-Hetaste-Lag.js" defer></script>
+        <script src="Graf.js" defer></script>
+    </head>
+    <body>
+        <div class="flexDiv">
+            <h1>Temp och Hum Mätare</h1>
+        </div>
+        <div id="infoDiv" class="flexDiv">
+            <div id="valueParent" class="flexDiv" id="infoDiv">
+                <div class="flexDiv">
+                    <div id="curentParentDiv" class="flexDiv">
+                        <div id="curentValueDiv" class="flexDiv">
+                            <span id="tempValue" class="thermValue"></span>
+                            <span id="humValue" class="thermValue"></span>
+                        </div>
+                    </div>
+                </div>
+                <div id="delayParent" class="flexDiv">
+                    <div id="curentDelayDiv" class="flexDiv">
+                        <span id="delValue"></span>
+                        <input type="number" id="delinput" placeholder="Delay" min="2" max="300" onchange="newDelay(document.getElementById('delinput').valueAsNumber)"></input>
+                    </div>
+                </div>
+            </div>
+            <div class="flexDiv">
+                <div id="dateInput">
+                    <div>
+                        <input type="date" id="dateChart1" class="dateSelector" style="background-color: blue;">
+                    </div>
+                    <div>
+                        <input type="date" id="dateChart2" class="dateSelector" style="background-color: orange;">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="chartDiv">
+            <div id="TempChart" class="Chart">
+                
+            </div>
+            
+            <br>
+
+            <div id="HumChart" class="Chart">
+                
+            </div>
+        </div>
+        <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-database.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/ag-charts-community/dist/umd/ag-charts-community.js"></script> 
+    </body>
+</html>
