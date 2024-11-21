@@ -9,17 +9,15 @@
         <script src="Graf.js" defer></script>
     </head>
     <body>
-        <div class="flexDiv">
+        <div id="titel" class="flexDiv">
             <h1>Temp och Hum Mätare</h1>
         </div>
         <div id="infoDiv" class="flexDiv">
-            <div id="valueParent" class="flexDiv" id="infoDiv">
-                <div class="flexDiv">
-                    <div id="curentParentDiv" class="flexDiv">
-                        <div id="curentValueDiv" class="flexDiv">
-                            <span id="tempValue" class="thermValue"></span>
-                            <span id="humValue" class="thermValue"></span>
-                        </div>
+            <div id="valueParent" class="flexDiv">
+                <div id="curentParentDiv" class="flexDiv">
+                    <div id="curentValueDiv" class="flexDiv">
+                        <span id="tempValue" class="thermValue"></span>
+                        <span id="humValue" class="thermValue"></span>
                     </div>
                 </div>
                 <div id="delayParent" class="flexDiv">
@@ -29,10 +27,10 @@
                     </div>
                 </div>
             </div>
-            <div class="flexDiv">
+            <div id="dateParent" class="flexDiv">
                 <div id="dateInput">
                     <div>
-                        <input type="date" id="dateChart1" class="dateSelector" style="background-color: blue;">
+                        <input type="date" id="dateChart1" class="dateSelector" style="background-color: blue;" onchange="dateTest(document.getElementById('dateChart1').value)">
                     </div>
                     <div>
                         <input type="date" id="dateChart2" class="dateSelector" style="background-color: orange;">
@@ -44,8 +42,6 @@
             <div id="TempChart" class="Chart">
                 
             </div>
-            
-            <br>
 
             <div id="HumChart" class="Chart">
                 

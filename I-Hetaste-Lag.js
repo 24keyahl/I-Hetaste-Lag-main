@@ -16,9 +16,9 @@ const db = firebase.database();
 
 let thermRef = db.ref("/therm");
 let chartTempRef = db.ref("/chart");
+let chartRef = db.ref("/chart");
 let delMax = 300;
 let delMin = 2;
-
 
 
 thermRef.on("value", (snapshot) => {
@@ -30,7 +30,6 @@ thermRef.on("value", (snapshot) => {
       document.getElementById("humValue").innerHTML = "Hum: " + hum + "%";
       newDelay(delay / 1000);
 });
-
 
 function newDelay(indelay){
       if (!indelay) {
@@ -47,8 +46,12 @@ function newDelay(indelay){
       }
       document.getElementById("delValue").innerHTML = indelay + ": seconds";
       indelay *= 1000;
-      delayRef.update({delay: parseFloat(indelay)});     
+      thermRef.update({delay: parseFloat(indelay)});    
 }
+
+chartRef.once("value", (snapshot) => {
+      let chartData = snapshot.val();
+});
 
 function tempChart() {
       return [];
@@ -56,4 +59,8 @@ function tempChart() {
 
 function humChart() {
       return[];
+}
+function dateTest(x) {
+      let [chartDate1Year, chartDate1Month, chartDate1Day] = x.split('-');
+      let chartDate1 = chartData[chartDate1Year][chartDate1Month][chartDate1Day];
 }
