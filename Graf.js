@@ -1,95 +1,45 @@
 const { AgCharts } = agCharts;
 
-const dateFormatter = new Intl.DateTimeFormat("en-US");
-const tooltip = {
-  renderer: ({ title, datum, xKey, yKey }) => ({
-    title,
-    content: `${dateFormatter.format(datum[xKey])}: ${datum[yKey]}`,
-  }),
-};
-
-const tempOpt = {
+const tempOptions = {
   container: document.getElementById("TempChart"),
-  data: [tempChart()],
+  data: [],
   title: {
     text: "Temperature",
   },
   series: [
     {
       type: "line",
-      xKey: "time",
-      yKey: "Temperature",
-      tooltip,
+      xKey: "date1",
+      yKey: "temp1",
     },
     {
       type: "line",
-      xKey: "time",
-      yKey: "Temperature",
-      tooltip,
-    },
-  ],
-  axes: [
-    {
-      position: "bottom",
-      type: "time",
-      title: {
-        text: "Date",
-      },
-      label: {
-        format: "%b",
-      },
-    },
-    {
-      position: "left",
-      type: "number",
-      title: {
-        text: "Temperature in °C",
-      },
+      xKey: "date2",
+      yKey: "temp2",
     },
   ],
 };
 
-AgCharts.create(tempOpt);
-
-const humOpt = {
+const humOptions = {
   container: document.getElementById("HumChart"),
-  data: [humChart()],
+  data: [],
   title: {
     text: "Humidity",
   },
   series: [
     {
       type: "line",
-      xKey: "time",
-      yKey: "Humidity",
-      tooltip,
+      xKey: "date1",
+      yKey: "hum1",
     },
     {
       type: "line",
-      xKey: "time",
-      yKey: "Humidity",
-      tooltip,
+      xKey: "date2",
+      yKey: "hum2",
     },
-  ],
-  axes: [
-    {
-      position: "bottom",
-      type: "time",
-      title: {
-        text: "Date",
-      },
-      label: {
-        format: "%b",
-      },
-    },
-    {
-      position: "left",
-      type: "number",
-      title: {
-        text: "Humidity in %",
-      },
-    },
-  ],
+  ], 
 };
 
-AgCharts.create(humOpt);
+let agTempChart = AgCharts.create(tempOptions);
+
+let agHumChart = AgCharts.create(humOptions);

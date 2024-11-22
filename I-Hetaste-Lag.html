@@ -5,8 +5,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Termometer</title>
         <link href="I-Hetaste-Lag.css" rel="stylesheet">
-        <script src="I-Hetaste-Lag.js" defer></script>
-        <script src="Graf.js" defer></script>
     </head>
     <body>
         <div id="titel" class="flexDiv">
@@ -30,10 +28,10 @@
             <div id="dateParent" class="flexDiv">
                 <div id="dateInput">
                     <div>
-                        <input type="date" id="dateChart1" class="dateSelector" style="background-color: blue;" onchange="dateTest(document.getElementById('dateChart1').value)">
+                        <input type="date" id="dateChart1" class="dateSelector" style="background-color: blue;" onchange="Chart()">
                     </div>
                     <div>
-                        <input type="date" id="dateChart2" class="dateSelector" style="background-color: orange;">
+                        <input type="date" id="dateChart2" class="dateSelector" style="background-color: orange;" onchange="Chart()">
                     </div>
                 </div>
             </div>
@@ -50,5 +48,7 @@
         <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-app.js"></script>
         <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-database.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/ag-charts-community/dist/umd/ag-charts-community.js"></script> 
+        <script src="Graf.js"></script>
+        <script src="I-Hetaste-Lag.js"></script>
     </body>
 </html>

@@ -21,6 +21,11 @@ let delMax = 300;
 let delMin = 2;
 
 
+let dateIn1 = document.getElementById('dateChart1');
+
+let dateIn2 = document.getElementById('dateChart2');
+
+
 thermRef.on("value", (snapshot) => {
       let json = snapshot.val();
       let temp = json.temp;
@@ -49,18 +54,50 @@ function newDelay(indelay){
       thermRef.update({delay: parseFloat(indelay)});    
 }
 
-chartRef.once("value", (snapshot) => {
-      let chartData = snapshot.val();
-});
 
-function tempChart() {
-      return [];
-}
 
-function humChart() {
-      return[];
-}
-function dateTest(x) {
-      let [chartDate1Year, chartDate1Month, chartDate1Day] = x.split('-');
-      let chartDate1 = chartData[chartDate1Year][chartDate1Month][chartDate1Day];
+function Chart() {
+      chartRef.once("value", (snapshot) => {
+            let chartData = snapshot.val();
+            if (dateIn1.value) {
+                  humOptions.data = [];
+                  tempOptions.data = [];
+                  let [chartDate1Year, chartDate1Month, chartDate1Day] = dateIn1.value.split('-');
+                  let dateChart1 = chartData[chartDate1Year][chartDate1Month][chartDate1Day];
+                  for (i in dateChart1) {
+                        let fortime = i.toLocaleString('sv-SE', {mininumIntegerDigits: 2, useGruping: false});
+                        tempOptions.data.push({
+                              temp1: dateChart1[i]['temp'],
+                              date1: fortime + ":00",
+                              hum1: dateChart1[i]['hum'],
+                        });
+                        humOptions.data.push({
+                              hum1: dateChart1[i]['hum'],
+                              date1: fortime + ":00",
+                              temp1: dateChart1[i]['temp'],
+                        });
+                  }
+            }
+            if (dateIn2.value) {
+                  let [chartDate2Year, chartDate2Month, chartDate2Day] = dateIn2.value.split('-');
+                  let dateChart2 = chartData[chartDate2Year][chartDate2Month][chartDate2Day]; 
+                  for (i in dateChart2) {        
+                        let fortime = i.toLocaleString('sv-SE', {mininumIntegerDigits: 2, useGruping: false});
+                        tempOptions.data.push({
+                              temp2: dateChart2[i]['temp'],
+                              date2: fortime + ":00",
+                              hum2: dateChart2[i]['hum'],
+                        });
+                        humOptions.data.push({
+                              hum2: dateChart2[i]['hum'],
+                              date2: fortime + ":00",
+                              temp2: dateChart2[i]['temp'],
+                        });
+                  } 
+            }
+            console.log(tempOptions.data);
+            console.log(humOptions.data);
+            agTempChart.update(tempOptions);
+            agHumChart.update(humOptions);
+      });
 }
