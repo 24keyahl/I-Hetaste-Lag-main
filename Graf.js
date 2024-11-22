@@ -11,11 +11,13 @@ const tempOptions = {
       type: "line",
       xKey: "date1",
       yKey: "temp1",
+      yName: " ",
     },
     {
       type: "line",
       xKey: "date2",
       yKey: "temp2",
+      yName: " ",
     },
   ],
 };
@@ -31,11 +33,13 @@ const humOptions = {
       type: "line",
       xKey: "date1",
       yKey: "hum1",
+      yName: " ",
     },
     {
       type: "line",
       xKey: "date2",
       yKey: "hum2",
+      yName: " ",
     },
   ], 
 };
