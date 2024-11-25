@@ -59,9 +59,11 @@ function newDelay(indelay){
 function Chart() {
       chartRef.once("value", (snapshot) => {
             let chartData = snapshot.val();
-            if (dateIn1.value) {
+            if (dateIn1 || dateIn2) {
                   humOptions.data = [];
                   tempOptions.data = [];
+            }
+            if (dateIn1.value) {
                   let [chartDate1Year, chartDate1Month, chartDate1Day] = dateIn1.value.split('-');
                   let dateChart1 = chartData[chartDate1Year][chartDate1Month][chartDate1Day];
                   for (i in dateChart1) {
@@ -95,6 +97,26 @@ function Chart() {
                         });
                   } 
             }
+            tempOptions.data.sort((a, b) => {
+                  let dateA = new Date(`1970-01-01T${a.date1}`);
+                  let dateB = new Date(`1970-01-01T${b.date1}`);
+                  return dateA - dateB;
+                });
+            humOptions.data.sort((a, b) => {
+                  let dateA = new Date(`1970-01-01T${a.date1}`);
+                  let dateB = new Date(`1970-01-01T${b.date1}`);
+                  return dateA - dateB;
+                });
+            tempOptions.data.sort((a, b) => {
+                  let dateA = new Date(`1970-01-01T${a.date2}`);
+                  let dateB = new Date(`1970-01-01T${b.date2}`);
+                  return dateA - dateB;
+                });
+            humOptions.data.sort((a, b) => {
+                  let dateA = new Date(`1970-01-01T${a.date2}`);
+                  let dateB = new Date(`1970-01-01T${b.date2}`);
+                  return dateA - dateB;
+                });
             console.log(tempOptions.data);
             console.log(humOptions.data);
             agTempChart.update(tempOptions);
