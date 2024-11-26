@@ -85,7 +85,7 @@ void sendTempHum(){
   if (hour1 == hour()){
     char output1[256];
     sprintf(output1, "{\"temp\":%.2f,\"hum\":%.2f}", SensorTemp, SensorHum);
-    fb.setJson("/therm/", output1);
+    fb.setJson("/therm/value/", output1);
   }
   else {
     char path[22];
@@ -102,13 +102,9 @@ void sendTempHum(){
 void loop(){
   getTempHum();
   sendTempHum();
-
-
-  if(fb.getFloat("/therm/delay")){
-    delay1 =fb.getFloat("/therm/delay");
-  }
-  else{
-    delay1 = 2000; 
+  delay1 = fb.getFloat("/therm/input/delay");
+  if (!delay1) {
+    delay1 = 2000;
   }
   if (delay1 < 2000){
     delay1 = 2000;
@@ -117,7 +113,6 @@ void loop(){
     delay1 = 300000;
   }
   Serial.println(delay1);
-  
   delay(delay1);
 }
 

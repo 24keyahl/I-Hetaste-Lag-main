@@ -1,6 +1,6 @@
 const { AgCharts } = agCharts;
 
-const tempOptions = {
+const chartOptions1 = {
   container: document.getElementById("TempChart"),
   data: [],
   title: {
@@ -12,17 +12,19 @@ const tempOptions = {
       xKey: "date1",
       yKey: "temp1",
       yName: " ",
+      xName: "Time",
     },
     {
       type: "line",
       xKey: "date2",
       yKey: "temp2",
       yName: " ",
+      xName: "Time",
     },
   ],
 };
 
-const humOptions = {
+const chartOptions2 = {
   container: document.getElementById("HumChart"),
   data: [],
   title: {
@@ -34,16 +36,18 @@ const humOptions = {
       xKey: "date1",
       yKey: "hum1",
       yName: " ",
+      xName: "Time",
     },
     {
       type: "line",
       xKey: "date2",
       yKey: "hum2",
       yName: " ",
+      xName: "Time",
     },
   ], 
 };
 
-let agTempChart = AgCharts.create(tempOptions);
+let agTempChart = AgCharts.create(chartOptions1);
 
-let agHumChart = AgCharts.create(humOptions);
+let agHumChart = AgCharts.create(chartOptions2);
