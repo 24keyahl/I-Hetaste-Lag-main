@@ -23,6 +23,21 @@ let delMin = 2;
 let chartOptions = new Map();
 let chartOptionsTo;
 let l;
+let averageTemp1 = [];
+let averageHum1 = [];
+let averageTemp2 = [];
+let averageHum2 = [];
+
+
+let averageRTemp1;
+let averageRHum1;
+let averageRTemp2;
+let averageRHum2;
+
+let totalTemp1;
+let totalHum1;
+let totalTemp2;
+let totalHum2;
 
 let dateIn1 = document.getElementById('dateChart1');
 
@@ -55,6 +70,11 @@ function newDelay(indelay){
       inRef.update({delay: parseFloat(indelay)});    
 }
 
+document.getElementById("averageTemp1").innerHTML = "°C";
+document.getElementById("averageHum1").innerHTML = "%";
+document.getElementById("averageTemp2").innerHTML = "°C";
+document.getElementById("averageHum2").innerHTML = "%";
+
 
 function Chart() {
       chartRef.once("value", (snapshot) => {
@@ -78,33 +98,70 @@ function Chart() {
             if (dateIn2.value) {
                   let [chartDate2Year, chartDate2Month, chartDate2Day] = dateIn2.value.split('-');
                   let dateChart2 = chartData[chartDate2Year][chartDate2Month][chartDate2Day]; 
+                  console.log(dateChart2);
                   for (i in dateChart2) {        
                         l = String(i).padStart(2, '0');
                         chartOptions.set(l, {
                               ...chartOptions.get(l) || {}, 
                               temp2: dateChart2[i]['temp'],
-                              date2: l + ":00",
+                              date1: l + ":00",
                               hum2: dateChart2[i]['hum'],
                         });
                         
                   } 
             }
             chartOptionsTo = Array.from(chartOptions.values());
-            if (dateIn1.value || dateIn1.value && dateIn2.value) {
+            if (dateIn1.value && dateIn2.value) {
                   chartOptionsTo.sort((a, b) => {
                         let dateA = new Date(`1970-01-01T${a.date1}`);
                         let dateB = new Date(`1970-01-01T${b.date1}`);
                         return dateA - dateB;
                   });
             }
-            else if (dateIn2.value)  {
+            else if (dateIn1.value) {
                   chartOptionsTo.sort((a, b) => {
-                        let dateA = new Date(`1970-01-01T${a.date2}`);
-                        let dateB = new Date(`1970-01-01T${b.date2}`);
+                        let dateA = new Date(`1970-01-01T${a.date1}`);
+                        let dateB = new Date(`1970-01-01T${b.date1}`);
                         return dateA - dateB;
                   });
             }
-
+            else if (dateIn2.value) {
+                  chartOptionsTo.sort((a, b) => {
+                        let dateA = new Date(`1970-01-01T${a.date1}`);
+                        let dateB = new Date(`1970-01-01T${b.date1}`);
+                        return dateA - dateB;
+                  });
+            }
+            averageTemp1 = [];
+            averageHum1 = [];
+            averageTemp2 = [];
+            averageHum1 = [];
+            for(i in chartOptionsTo) {
+                  averageTemp1 += chartOptionsTo[i].temp1
+                  averageHum1 += chartOptionsTo[i].hum1
+                  averageTemp2 += chartOptionsTo[i].temp2
+                  averageHum2 += chartOptionsTo[i].hum2
+            }
+            for(i in averageTemp1) {
+                  totalTemp1 += averageTemp1[i];
+            }
+            averageRTemp1 = totalTemp1 / averageTemp1.length;
+            for(i in averageHum1) {
+                  totalHum1 += averageHum1[i];
+            }
+            averageRHum1 = totalHum1 / averageHum1.length;
+            for(i in averageTemp2) {
+                  totalTemp2 += averageTemp2[i];
+            }
+            averageRTemp2 = totalTemp2 / averageTemp2.length;
+            for(i in averageHum2) {
+                  totalHum2 += averageHum2[i];
+            }
+            averageRHum2 = totalHum2 / averageHum2.length;
+            document.getElementById("averageTemp1").innerHTML = averageRTemp1 + "°C";
+            document.getElementById("averageHum1").innerHTML = averageRHum1 + "%";
+            document.getElementById("averageTemp2").innerHTML = averageRTemp2 + "°C";
+            document.getElementById("averageHum2").innerHTML = averageRHum2 + "%";
             chartOptions1.data = chartOptionsTo;
             chartOptions2.data = chartOptionsTo;
             agTempChart.update(chartOptions1);

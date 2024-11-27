@@ -16,7 +16,7 @@ const chartOptions1 = {
     },
     {
       type: "line",
-      xKey: "date2",
+      xKey: "date1",
       yKey: "temp2",
       yName: " ",
       xName: "Time",
@@ -40,7 +40,7 @@ const chartOptions2 = {
     },
     {
       type: "line",
-      xKey: "date2",
+      xKey: "date1",
       yKey: "hum2",
       yName: " ",
       xName: "Time",
