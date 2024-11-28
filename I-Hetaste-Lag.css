@@ -64,6 +64,9 @@ table {
 td {
     height: 30%;
 }
+#lightDark {
+    justify-content: flex-end;
+}
 @media (min-width: 700px) {
     #titel {
         justify-content: start;

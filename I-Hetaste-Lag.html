@@ -8,69 +8,77 @@
         <link href="I-Hetaste-Lag.css" rel="stylesheet">
     </head>
     <body>
-        <div id="titel" class="flexDiv">
-            <h1>Temp och Hum Mätare</h1>
-        </div>
-        <div id="infoDiv" class="flexDiv">
-            <div id="valueParent" class="flexDiv">
-                <div id="curentParentDiv" class="flexDiv">
-                    <div id="curentValueDiv" class="flexDiv">
-                        <span id="tempValue" class="thermValue"></span>
-                        <span id="humValue" class="thermValue"></span>
+        <div id="background-color">
+            <div id="lightDark"  class="flexDiv">
+                <a>Light/Dark Mode:</a>
+                <label class="switch">
+                    <input id="backgroundCheckbox" type="checkbox">
+                </label>
+            </div>
+            <div id="titel" class="flexDiv">
+                <h1>Temp och Hum Mätare</h1>
+            </div>
+            <div id="infoDiv" class="flexDiv">
+                <div id="valueParent" class="flexDiv">
+                    <div id="curentParentDiv" class="flexDiv">
+                        <div id="curentValueDiv" class="flexDiv">
+                            <span id="tempValue" class="thermValue"></span>
+                            <span id="humValue" class="thermValue"></span>
+                        </div>
+                    </div>
+                    <div id="delayParent" class="flexDiv">
+                        <div id="curentDelayDiv" class="flexDiv">
+                            <span id="delValue"></span>
+                            <input type="number" id="delinput" placeholder="Delay" min="2" max="300" onchange="newDelay(document.getElementById('delinput').valueAsNumber)"></input>
+                        </div>
                     </div>
                 </div>
-                <div id="delayParent" class="flexDiv">
-                    <div id="curentDelayDiv" class="flexDiv">
-                        <span id="delValue"></span>
-                        <input type="number" id="delinput" placeholder="Delay" min="2" max="300" onchange="newDelay(document.getElementById('delinput').valueAsNumber)"></input>
+                <div id="dateParent" class="flexDiv">
+                    <div id="dateInput">
+                        <div>
+                            <input type="date" id="dateChart1" class="dateSelector" style="background-color: blue;" onchange="Chart()">
+                        </div>
+                        <div>
+                            <input type="date" id="dateChart2" class="dateSelector" style="background-color: orange;" onchange="Chart()">
+                        </div>
                     </div>
                 </div>
             </div>
-            <div id="dateParent" class="flexDiv">
-                <div id="dateInput">
-                    <div>
-                        <input type="date" id="dateChart1" class="dateSelector" style="background-color: blue;" onchange="Chart()">
-                    </div>
-                    <div>
-                        <input type="date" id="dateChart2" class="dateSelector" style="background-color: orange;" onchange="Chart()">
-                    </div>
+            <div id="dateAverageParent" class="flexDiv">
+                <div id="dateAverage" class="flexDiv">
+                    <table>
+                        <tr>
+                            <th>Datum</th>
+                            <th>Average Temperature</th>
+                            <th>Average Humidity</th>
+                        </tr>
+                        <tr>
+                            <td style="background-color: blue;"></td>
+                            <td id="averageTemp1"></td>
+                            <td id="averageHum1"></td>
+                        </tr>
+                        <tr>
+                            <td style="background-color: orange;"></td>
+                            <td id="averageTemp2"></td>
+                            <td id="averageHum2"></td>
+                        </tr>
+                    </table>
                 </div>
             </div>
-        </div>
-        <div id="dateAverageParent" class="flexDiv">
-            <div id="dateAverage" class="flexDiv">
-                <table>
-                    <tr>
-                        <th>Datum</th>
-                        <th>Average Temperature</th>
-                        <th>Average Humidity</th>
-                    </tr>
-                    <tr>
-                        <td style="background-color: blue;"></td>
-                        <td id="averageTemp1"></td>
-                        <td id="averageHum1"></td>
-                    </tr>
-                    <tr>
-                        <td style="background-color: orange;"></td>
-                        <td id="averageTemp2"></td>
-                        <td id="averageHum2"></td>
-                    </tr>
-                </table>
-            </div>
-        </div>
-        <div id="chartDiv">
-            <div id="TempChart" class="Chart">
-                
-            </div>
+            <div id="chartDiv">
+                <div id="TempChart" class="Chart">
+                    
+                </div>
 
-            <div id="HumChart" class="Chart">
-                
+                <div id="HumChart" class="Chart">
+                    
+                </div>
             </div>
+            <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-app.js"></script>
+            <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-database.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/ag-charts-community/dist/umd/ag-charts-community.js"></script> 
+            <script src="Graf.js"></script>
+            <script src="I-Hetaste-Lag.js"></script>
         </div>
-        <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-app.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-database.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/ag-charts-community/dist/umd/ag-charts-community.js"></script> 
-        <script src="Graf.js"></script>
-        <script src="I-Hetaste-Lag.js"></script>
     </body>
 </html>
