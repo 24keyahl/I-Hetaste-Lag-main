@@ -4,7 +4,7 @@ const chartOptions1 = {
   container: document.getElementById("TempChart"),
   data: [],
   title: {
-    text: "Temperature",
+    text: "Temperature in °C",
     color: "black",
   },
   background: {
@@ -32,7 +32,7 @@ const chartOptions2 = {
   container: document.getElementById("HumChart"),
   data: [],
   title: {
-    text: "Humidity",
+    text: "Humidity in %",
     color: "black",
   },
   background: {
