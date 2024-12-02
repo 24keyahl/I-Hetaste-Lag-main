@@ -89,7 +89,7 @@ background-color: #3B3B3B;
     flex-wrap: nowrap;
     white-space: nowrap;
 }
-@media (min-width: 700px) {
+@media (min-width: 850px) {
     #titel {
         justify-content: start;
     }

@@ -27,7 +27,6 @@ const chartOptions1 = {
     },
   ],
 };
-
 const chartOptions2 = {
   container: document.getElementById("HumChart"),
   data: [],
@@ -37,6 +36,9 @@ const chartOptions2 = {
   },
   background: {
     fill: '#ffffff',
+  },
+  text: {
+    fill: '#000000',
   },
   series: [
     {
@@ -55,7 +57,5 @@ const chartOptions2 = {
     },
   ], 
 };
-
 let agTempChart = AgCharts.create(chartOptions1);
-
 let agHumChart = AgCharts.create(chartOptions2);
