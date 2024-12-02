@@ -5,6 +5,10 @@ const chartOptions1 = {
   data: [],
   title: {
     text: "Temperature",
+    color: "black",
+  },
+  background: {
+    fill: '#ffffff',
   },
   series: [
     {
@@ -29,6 +33,10 @@ const chartOptions2 = {
   data: [],
   title: {
     text: "Humidity",
+    color: "black",
+  },
+  background: {
+    fill: '#ffffff',
   },
   series: [
     {

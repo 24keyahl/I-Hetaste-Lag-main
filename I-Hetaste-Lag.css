@@ -67,6 +67,15 @@ td {
 #lightDark {
     justify-content: flex-end;
 }
+body {
+padding: 25px;
+background-color: white;
+color: black;
+font-size: 25px;
+}
+.dark-mode {
+background-color: #3B3B3B;
+}
 @media (min-width: 700px) {
     #titel {
         justify-content: start;
