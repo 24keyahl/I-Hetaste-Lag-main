@@ -1,5 +1,14 @@
-#titel {
+#spacerDivParent {
+    justify-content: space-between;
+}
+#spacerDiv {
+    width: 25%;
+}
+#titelDiv {
+    flex-wrap: nowrap;
+    white-space: nowrap;
     justify-content: center;
+    align-items: center;
 }
 .flexDiv {
     display: flex;
@@ -64,9 +73,6 @@ table {
 td {
     height: 30%;
 }
-#lightDark {
-    justify-content: flex-end;
-}
 body {
 padding: 25px;
 background-color: white;
@@ -75,6 +81,13 @@ font-size: 25px;
 }
 .dark-mode {
 background-color: #3B3B3B;
+}
+#lightDark {
+    width: 25%;
+    justify-content: flex-end;
+    align-items: center;
+    flex-wrap: nowrap;
+    white-space: nowrap;
 }
 @media (min-width: 700px) {
     #titel {
