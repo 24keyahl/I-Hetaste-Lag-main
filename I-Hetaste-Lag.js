@@ -42,6 +42,7 @@ let dateIn2 = document.getElementById('dateChart2');
 function lightDark() {
       let element1 = document.body;
       element1.classList.toggle("dark-mode");
+      document.getElementById("themeText").innerHTML = document.body.classList.contains("dark-mode")? "Dark Mode: " : "Light Mode: ";
       document.getElementById("delinput").style.background = document.body.classList.contains("dark-mode")? "#ffffff" : "#3b3b3b";
       chartOptions1.background.fill = document.body.classList.contains("dark-mode")? "#ffffff" : "#2C2C2C";
       chartOptions2.background.fill = document.body.classList.contains("dark-mode")? "#ffffff" : "#2C2C2C";
