@@ -8,7 +8,10 @@ const chartOptions1 = {
     color: "black",
   },
   background: {
-    fill: '#ffffff',
+    fill: "#2C2C2C",
+  },
+  text: {
+    fill: '#999999',
   },
   series: [
     {
@@ -35,10 +38,10 @@ const chartOptions2 = {
     color: "black",
   },
   background: {
-    fill: '#ffffff',
+    fill: "#2C2C2C"
   },
   text: {
-    fill: '#000000',
+    fill: '#999999',
   },
   series: [
     {

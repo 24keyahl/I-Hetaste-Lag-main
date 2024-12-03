@@ -75,13 +75,13 @@ td {
 }
 body {
 padding: 25px;
-background-color: white;
-color: black;
+background-color: #212121;
+color: #999999;
 font-size: 25px;
 }
 .dark-mode {
-background-color: #212121;
-color: #999999;
+background-color: white;
+color: black;
 }
 #lightDark {
     width: 25%;

@@ -42,11 +42,11 @@ let dateIn2 = document.getElementById('dateChart2');
 function lightDark() {
       let element1 = document.body;
       element1.classList.toggle("dark-mode");
-      document.getElementById("delinput").style.background = document.body.classList.contains("dark-mode")? "#3b3b3b" : "#ffffff";
-      chartOptions1.background.fill = document.body.classList.contains("dark-mode")? "#2C2C2C" : "#ffffff";
-      chartOptions2.background.fill = document.body.classList.contains("dark-mode")? "#2C2C2C" : "#ffffff";
-      chartOptions1.title.color = document.body.classList.contains("dark-mode")? "#999999" : "#black";
-      chartOptions2.title.color = document.body.classList.contains("dark-mode")? "#999999" : "#black";
+      document.getElementById("delinput").style.background = document.body.classList.contains("dark-mode")? "#ffffff" : "#3b3b3b";
+      chartOptions1.background.fill = document.body.classList.contains("dark-mode")? "#ffffff" : "#2C2C2C";
+      chartOptions2.background.fill = document.body.classList.contains("dark-mode")? "#ffffff" : "#2C2C2C";
+      chartOptions1.title.color = document.body.classList.contains("dark-mode")? "black" : "#999999";
+      chartOptions2.title.color = document.body.classList.contains("dark-mode")? "black" : "#999999";
       agTempChart.update(chartOptions1);
       agHumChart.update(chartOptions2);
 }

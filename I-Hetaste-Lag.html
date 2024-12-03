@@ -14,7 +14,7 @@
                 <h1>Temp och Hum Mätare</h1>
             </div>
             <div id="lightDark" class="flexDiv">
-                <a>Dark Mode:</a>
+                <a>Light Mode:</a>
                 <label class="switch">
                     <input id="backgroundCheckbox" type="checkbox" onchange="lightDark()">
                 </label>
@@ -31,7 +31,7 @@
                 <div id="delayParent" class="flexDiv">
                     <div id="curentDelayDiv" class="flexDiv">
                         <span id="delValue"></span>
-                        <input type="number" id="delinput" placeholder="Delay" min="2" max="300" onchange="newDelay(document.getElementById('delinput').valueAsNumber)"></input>
+                        <input type="number" id="delinput" style="background-color: #3b3b3b;" placeholder="Delay" min="2" max="300" onchange="newDelay(document.getElementById('delinput').valueAsNumber)"></input>
                     </div>
                 </div>
             </div>
