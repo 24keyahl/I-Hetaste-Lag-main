@@ -43,7 +43,10 @@ function lightDark() {
       let element1 = document.body;
       element1.classList.toggle("dark-mode");
       document.getElementById("delinput").style.background = document.body.classList.contains("dark-mode")? "#3b3b3b" : "#ffffff";
-      Chart();
+      chartOptions1.background.fill = document.body.classList.contains("dark-mode")? "#3b3b3b" : "#ffffff";
+      chartOptions2.background.fill = document.body.classList.contains("dark-mode")? "#3b3b3b" : "#ffffff";
+      agTempChart.update(chartOptions1);
+      agHumChart.update(chartOptions2);
 }
 
 
@@ -167,8 +170,6 @@ function Chart() {
             }
             chartOptions1.data = chartOptionsTo;
             chartOptions2.data = chartOptionsTo;
-            chartOptions1.background.fill = document.body.classList.contains("dark-mode")? "#3b3b3b" : "#ffffff";
-            chartOptions2.background.fill = document.body.classList.contains("dark-mode")? "#3b3b3b" : "#ffffff";
             agTempChart.update(chartOptions1);
             agHumChart.update(chartOptions2);
       });
