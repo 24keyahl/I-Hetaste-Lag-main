@@ -80,7 +80,8 @@ color: black;
 font-size: 25px;
 }
 .dark-mode {
-background-color: #3B3B3B;
+background-color: #212121;
+color: #999999;
 }
 #lightDark {
     width: 25%;

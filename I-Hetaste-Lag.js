@@ -43,8 +43,10 @@ function lightDark() {
       let element1 = document.body;
       element1.classList.toggle("dark-mode");
       document.getElementById("delinput").style.background = document.body.classList.contains("dark-mode")? "#3b3b3b" : "#ffffff";
-      chartOptions1.background.fill = document.body.classList.contains("dark-mode")? "#3b3b3b" : "#ffffff";
-      chartOptions2.background.fill = document.body.classList.contains("dark-mode")? "#3b3b3b" : "#ffffff";
+      chartOptions1.background.fill = document.body.classList.contains("dark-mode")? "#2C2C2C" : "#ffffff";
+      chartOptions2.background.fill = document.body.classList.contains("dark-mode")? "#2C2C2C" : "#ffffff";
+      chartOptions1.title.color = document.body.classList.contains("dark-mode")? "#999999" : "#black";
+      chartOptions2.title.color = document.body.classList.contains("dark-mode")? "#999999" : "#black";
       agTempChart.update(chartOptions1);
       agHumChart.update(chartOptions2);
 }
