@@ -1,12 +1,13 @@
 #spacerDivParent {
     justify-content: space-between;
+    flex-direction: column-reverse;
 }
 #spacerDiv {
     width: 25%;
 }
 #titelDiv {
     flex-wrap: nowrap;
-    white-space: nowrap;
+    white-space: wrap;
     justify-content: center;
     align-items: center;
 }
@@ -84,9 +85,9 @@ background-color: white;
 color: black;
 }
 #lightDark {
-    width: 25%;
+    width: 100%;
     justify-content: flex-end;
-    align-items: center;
+    align-items: end;
     flex-wrap: nowrap;
     white-space: nowrap;
 }
@@ -94,12 +95,19 @@ color: black;
     #titel {
         justify-content: start;
     }
+    #tittleDiv {
+        white-space: nowrap;
+    }
     #infoDiv {
         justify-content: space-between;
         flex-direction: row-reverse;   
         width: 90%;
         margin-right: 7%;
         margin-left: 3%; 
+    }
+    #spacerParent {
+        flex-direction: row;
+        justify-content: space-between;
     }
     .Chart {
         width: 45%;
